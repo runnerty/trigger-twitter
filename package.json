@@ -1,0 +1,24 @@
+{
+  "name": "@runnerty/trigger-twitter",
+  "version": "0.0.1",
+  "description": "Runnerty module: Trigger Twitter",
+  "author": "Coderty",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runnerty/trigger-twitter.git"
+  },
+  "keywords": [
+    "runnerty",
+    "trigger",
+    "twitter"
+  ],
+  "bugs": {
+    "url": "https://github.com/runnerty/trigger-twitter/issues"
+  },
+  "homepage": "https://github.com/runnerty/trigger-twitter#readme",
+  "dependencies": {
+    "twit": "^2.2.9"
+  }
+}
