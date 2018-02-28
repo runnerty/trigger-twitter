@@ -14,16 +14,25 @@ With this trigger you can stream twitter hashtags and collect the data from the 
 }
 ```
 
-### Plan sample:
+### Plan sample to Stream a hashtag
 ```json
 {
   "id":"twitter_default",
+  "command":"hashtag",
   "hashtag":"#runnerty"
 }
 ```
 
+### Plan sample to Stream a follow event on the account
+```json
+{
+  "id":"twitter_default",
+  "command":"follow"
+}
+```
+
 ### Chain input
-This trigger sends to the input of the chain data from the tweet which you can use in you plan:
+This trigger sends to the input of the chain data from the user/tweet which you can use in you plan:
 
 ```
 user_id: number
@@ -49,6 +58,7 @@ tweet_text: string
 tweet_retweet_count: number
 tweet_favorite_count: number
 tweet_hashtags: object
+tweet_data: object with all the data retreived by the Twitter API
 ```
 
 [Runnerty]: http://www.runnerty.io

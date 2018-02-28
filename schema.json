@@ -38,19 +38,44 @@
       }
     },
     "params": {
-      "type": "object",
-      "required": [
-        "id",
-        "hashtag"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "command",
+            "hashtag"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "command": {
+              "type": "string",
+              "pattern": "hashtag"
+            },
+            "hashtag": {
+              "type": "string"
+            }
+          }
         },
-        "hashtag": {
-          "type": "string"
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "command"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "command": {
+              "type": "string",
+              "pattern": "follow"
+            }
+          }
         }
-      }
+      ]
     }
   }
 }
