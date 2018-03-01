@@ -19,7 +19,8 @@ With this trigger you can stream twitter hashtags and collect the data from the 
 {
   "id":"twitter_default",
   "command":"hashtag",
-  "hashtag":"#runnerty"
+  "hashtag":"#runnerty",
+  "language": "en" // This param is optional, by default is set to 'en'
 }
 ```
 

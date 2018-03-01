@@ -56,7 +56,7 @@ class triggerTwitter extends Trigger {
         break;
 
       case "hashtag":
-        _this.stream = T.stream("statuses/filter", { track: _this.params.hashtag, language: "es" });
+        _this.stream = T.stream("statuses/filter", { track: _this.params.hashtag, language: _this.params.language || "en" });
         _this.stream.on("tweet", function (tweet) {
           const checkCalendar = true;
           const inputValues = {
