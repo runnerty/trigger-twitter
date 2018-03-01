@@ -1,7 +1,7 @@
 "use strict";
 
 var Trigger = global.TriggerClass;
-const Twit = require('twit');
+const Twit = require("twit");
 
 class triggerTwitter extends Trigger {
   constructor(chain, params) {
@@ -18,13 +18,13 @@ class triggerTwitter extends Trigger {
       access_token: _this.params.config.accessToken,
       access_token_secret: _this.params.config.accessTokenSecret,
       timeout_ms: _this.params.config.timeoutMs,  // optional HTTP request timeout to apply to all requests.
-    })
+    });
 
     // Callback
     switch (_this.params.command) {
-      case 'follow':
-        this.stream = T.stream('user');
-        _this.stream.on('follow', function (eventMsg) {
+      case "follow":
+        this.stream = T.stream("user");
+        _this.stream.on("follow", function (eventMsg) {
           const checkCalendar = true;
           const inputValues = {
             "user_id": eventMsg.source.id,
@@ -52,11 +52,12 @@ class triggerTwitter extends Trigger {
             .catch(err => {
               _this.logger.error("startChain error (triggerTwitter):", err);
             });
-        })
+        });
         break;
-      case 'hashtag':
-        _this.stream = T.stream('statuses/filter', { track: _this.params.hashtag, language: 'es' })
-        _this.stream.on('tweet', function (tweet) {
+
+      case "hashtag":
+        _this.stream = T.stream("statuses/filter", { track: _this.params.hashtag, language: "es" });
+        _this.stream.on("tweet", function (tweet) {
           const checkCalendar = true;
           const inputValues = {
             "user_id": tweet.user.id,
@@ -91,7 +92,7 @@ class triggerTwitter extends Trigger {
             .catch(err => {
               _this.logger.error("startChain error (triggerTwitter):", err);
             });
-        })
+        });
         break;
     }
   }
