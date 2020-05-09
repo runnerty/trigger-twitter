@@ -26,7 +26,7 @@ class triggerTwitter extends Trigger {
         this.stream = T.stream("user");
         _this.stream.on("follow", (eventMsg) => {
           const checkCalendar = true;
-          const inputValues = {
+          const customValues = {
             "user_id": eventMsg.source.id,
             "user_id_str": eventMsg.source.id_str,
             "user_name": eventMsg.source.name,
@@ -45,7 +45,7 @@ class triggerTwitter extends Trigger {
             "user_follow_request_sent": eventMsg.source.follow_request_sent,
             "tweet_data": eventMsg
           };
-          const customValues = {};
+          const inputValues = {};
 
           _this.startChain(checkCalendar, inputValues, customValues)
             .then(() => { })
@@ -59,7 +59,7 @@ class triggerTwitter extends Trigger {
         _this.stream = T.stream("statuses/filter", { track: _this.params.hashtag, language: _this.params.language || "en" });
         _this.stream.on("tweet", (tweet) => {
           const checkCalendar = true;
-          const inputValues = {
+          const customValues = {
             "user_id": tweet.user.id,
             "user_id_str": tweet.user.id_str,
             "user_name": tweet.user.name,
@@ -85,7 +85,7 @@ class triggerTwitter extends Trigger {
             "tweet_hashtags": tweet.entities.hashtags,
             "tweet_data": tweet
           };
-          const customValues = {};
+          const inputValues = {};
 
           _this.startChain(checkCalendar, inputValues, customValues)
             .then(() => { })
